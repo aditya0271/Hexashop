@@ -98,19 +98,36 @@ https://templatemo.com/tm-571-hexashop
                         <h3>RS.
                             <?php echo $product['product_price']; ?>
                         </h3>
-                        <span><p>inclusive of all taxes</p></span><br>
+                        <span>
+                            <p>inclusive of all taxes</p>
+                        </span><br>
                         <br>
-                        <a href="#" class="btn btn-primary"><i class="bi bi-cart-fill"></i> Add to Cart</a>
+                        <form action="single-product.php" method="GET">
+                            <input type="hidden" name="add_to_cart" value="<?php echo $product['product_id']; ?>">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-cart-fill"></i> Add to Cart</button>
+                        </form>
+
+
                         <a href="#" class="btn btn-secondary"><i class="bi bi-heart-fill"></i> Wishlist <br></a>
+                        <a href="#" class="btn btn-secondary"><i class="bi bi-heart-fill"></i> G <br></a>
                         <h6>
                             <strong> <br>DELIVERY OPTIONS <i class="bi bi-truck"></i></strong>
                         </h6>
-                        
+
                         <ul>
-                            <li><p>Availability 100% Original Products</p></li>
-                            <li><p>Pay on delivery might be available</p></li>
-                            <li><p>Easy 14 days returns and exchanges</p></li>
-                            <li><p>Try & Buy might be available</p></li></p>
+                            <li>
+                                <p>Availability 100% Original Products</p>
+                            </li>
+                            <li>
+                                <p>Pay on delivery might be available</p>
+                            </li>
+                            <li>
+                                <p>Easy 14 days returns and exchanges</p>
+                            </li>
+                            <li>
+                                <p>Try & Buy might be available</p>
+                            </li>
+                            </p>
                         </ul>
                         <!-- Additional product details can be displayed here -->
                     </div>
@@ -120,10 +137,121 @@ https://templatemo.com/tm-571-hexashop
         } else {
             echo "Product not found.";
         }
-    } else {
-        echo "Product ID not provided.";
     }
     ?>
+
+    <?php
+    function getIPAddress()
+    {
+        // whether IP is from the shared internet
+        if (!empty ($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }
+        // whether IP is from the proxy
+        else if (!empty ($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        // whether IP is from the remote address
+        else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
+    function cart()
+    {
+        global $conn; // Assuming $conn is your database connection
+        if (isset ($_GET['add_to_cart'])) {
+            $get_ip_add = getIPAddress();
+            $get_product_id = $_GET['add_to_cart'];
+
+            // Sanitize input to prevent SQL injection
+            $get_ip_add = mysqli_real_escape_string($conn, $get_ip_add);
+            $get_product_id = mysqli_real_escape_string($conn, $get_product_id);
+
+            $select_query = "SELECT * FROM `cart_details` WHERE ip_adress='$get_ip_add' AND product_id=$get_product_id";
+            $result_query = mysqli_query($conn, $select_query);
+            $num_of_rows = mysqli_num_rows($result_query);
+
+            if ($num_of_rows > 0) {
+                echo "<script>alert('This item is already in your cart')</script>";
+                echo "<script>window.open('index.php', '_self')</script>";
+            } else {
+                // Insert the item into the cart_details table
+                $insert_query = "INSERT INTO `cart_details` (ip_adress, quantity) VALUES ('$get_ip_add', 1)";
+
+                $result_insert = mysqli_query($conn, $insert_query);
+                if ($result_insert) {
+                    echo "<script>alert('Item added to cart successfully')</script>";
+                    echo "<script>window.open('index.php', '_self')</script>";
+                }
+            }
+        }
+    }
+
+    // Call the cart function after form submission
+    cart();
+ 
+    // function to get cart item number  
+    
+    function cart_item(){
+        global $conn; // Assuming $conn is your database connection
+        if (isset ($_GET['add_to_cart'])) {
+            $get_ip_add = getIPAddress();
+            $get_product_id = $_GET['add_to_cart'];
+
+            // Sanitize input to prevent SQL injection
+            $get_ip_add = mysqli_real_escape_string($conn, $get_ip_add);
+            $get_product_id = mysqli_real_escape_string($conn, $get_product_id);
+
+            $select_query = "SELECT * FROM `cart_details` WHERE ip_adress='$get_ip_add' AND product_id=$get_product_id";
+            $result_query = mysqli_query($conn, $select_query);
+            $num_of_rows = mysqli_num_rows($result_query);
+
+            if ($num_of_rows > 0) {
+                echo "<script>alert('This item is already in your cart')</script>";
+                echo "<script>window.open('index.php', '_self')</script>";
+            } else {
+                // Insert the item into the cart_details table
+                $insert_query = "INSERT INTO `cart_details` (ip_adress, quantity) VALUES ('$get_ip_add', 1)";
+
+                $result_insert = mysqli_query($conn, $insert_query);
+                if ($result_insert) {
+                    echo "<script>alert('Item added to cart successfully')</script>";
+                    echo "<script>window.open('index.php', '_self')</script>";
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Footer Area -->
     <?php

@@ -57,21 +57,21 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>
     </div>
+    <div></div>
     <!-- ########## END: Setting Box ########## -->
 
     <!-- ########## START: LEFT PANEL ########## -->
     <div class="br-sideleft">
         <a id="remove-menu" class="la la-close d-xl-none"></a>
         <div class="br-logo d-flex justify-content-center align-items-center">
-            <a href="index.html"><img src="assets/image/logo.png" alt="MS Admin Panel" width="80" /></a>
+            <a href="index.php"><img src="assets/image/logo.png" alt="MS Admin Panel" width="80" /></a>
         </div>
         <ul class="custom-scroll">
-            <li class="active"><a href="index.html" class="waves-effect waves-primary"><i
+            <li class="active"><a href="index.php" class="waves-effect waves-primary"><i
                         class="la la-dashboard"></i>Dashboard</a></li>
             <li><a href="elements.html" class="waves-effect waves-primary"><i class="la la-clone"></i>Elements</a></li>
             <!-- <li><a href="javascript:;" class="waves-effect waves-primary"><i
@@ -300,28 +300,23 @@
             <div class="pagetitle">
                 <h4 class="text-center">Manage Details</h4>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="button text-center my-3">
-                        <button class="btn btn-secondary m-1"><a href="insert_product.php" class="text-light">Insert
-                                Products</a></button>
-                        <button class="btn btn-secondary m-1"><a href="#" class="text-light">View Products</a></button>
-                        <button class="btn btn-secondary m-1"><a href="index.php?insert_category"
-                                class="text-light">Insert Categories</a></button>
-                        <button class="btn btn-secondary m-1"><a href="#" class="text-light">View
-                                Categories</a></button>
-                        <button class="btn btn-secondary m-1"><a href="index.php?insert_brands"
-                                class="text-light">Insert Brands</a></button>
-                        <button class="btn btn-secondary m-1"><a href="#" class="text-light">All Orders</a></button>
-                        <button class="btn btn-secondary m-1"><a href="#" class="text-light">All Payments</a></button>
-                        <button class="btn btn-secondary m-1"><a href="#" class="text-light">List Users</a></button>
-                        <!-- <button class="btn btn-secondary m-1"><a href="logout.php" class="text-light">Logout</a></button> S -->
-                    </div>
-                    <form class="btn btn-secondary m-auto align-items-center" action="login.php" method="post">
-                <input type="submit" name="logout" value="Logout">
-            </form>
-                </div>
-            </div>
+<div class="card">
+    <div class="card-body d-flex flex-column align-items-center">
+        <div class="button text-center my-3">
+            <button class="btn btn-secondary m-1"><a href="insert_product.php" class="text-light">Insert Products</a></button>
+            <button class="btn btn-secondary m-1"><a href="#" class="text-light">View Products</a></button>
+            <button class="btn btn-secondary m-1"><a href="index.php?insert_category" class="text-light">Insert Categories</a></button>
+            <button class="btn btn-secondary m-1"><a href="#" class="text-light">View Categories</a></button>
+            <button class="btn btn-secondary m-1"><a href="index.php?insert_brands" class="text-light">Insert Brands</a></button>
+            <button class="btn btn-secondary m-1"><a href="#" class="text-light">All Orders</a></button>
+            <button class="btn btn-secondary m-1"><a href="#" class="text-light">All Payments</a></button>
+            <button class="btn btn-secondary m-1"><a href="#" class="text-light">List Users</a></button>
+        </div>
+        <form action="login.php" method="post">
+            <button type="submit" class="btn btn-secondary m-1">Logout</button>
+        </form>
+    </div>
+</div>
 
 
             <!-- including insert.php after clicking button -->

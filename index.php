@@ -196,13 +196,16 @@ https://templatemo.com/tm-571-hexashop
                                     <div class="item">
                                         <div class="thumb">
                                             <div class="hover-content">
-                                                <ul>
-                                                    <li><a href="single-product.php?id=<?= $row["product_id"] ?>"><i
-                                                                class="fa fa-eye"></i></a></li>
-                                                    <li><a href="single-product.php?id=<?= $row["product_id"] ?>"><i
-                                                                class="fa fa-star"></i></a></li>
-                                                    <li><a href="add-to-cart.php?id=<?= $row["product_id"] ?>"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
+                                                <ul class="list-inline d-flex justify-content-center align-items-center">
+                                                    <li class="list-inline-item"><a
+                                                            href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                class="emoji">👁️</i></span></a></li>
+                                                    <li class="list-inline-item"><a
+                                                            href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                class="emoji">⭐</span></a></li>
+                                                    <!-- <li class="list-inline-item"><a
+                                                            href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                class="emoji">🛒</span></a></li> -->
                                                 </ul>
                                             </div>
                                             <img src=".<?= $row["product_image"] ?>" alt="<?= $row["product_name"] ?>">
@@ -271,13 +274,16 @@ https://templatemo.com/tm-571-hexashop
                                         <div class="item">
                                             <div class="thumb">
                                                 <div class="hover-content">
-                                                    <ul>
-                                                        <li><a href="single-product.php?id=<?= $row["product_id"] ?>"><i
-                                                                    class="fa fa-eye"></i></a></li>
-                                                        <li><a href="single-product.php?id=<?= $row["product_id"] ?>"><i
-                                                                    class="fa fa-star"></i></a></li>
-                                                        <li><a href="add-to-cart.php?id=<?= $row["product_id"] ?>"><i
-                                                                    class="fa fa-shopping-cart"></i></a></li>
+                                                    <ul class="list-inline d-flex justify-content-center align-items-center">
+                                                        <li class="list-inline-item"><a
+                                                                href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                    class="emoji">👁️</i></span></a></li>
+                                                        <li class="list-inline-item"><a
+                                                                href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                    class="emoji">⭐</span></a></li>
+                                                        <li class="list-inline-item"><a
+                                                                href="add-to-cart.php?id=<?= $row["product_id"] ?>"><span
+                                                                    class="emoji">🛒</span></a></li>
                                                     </ul>
                                                 </div>
                                                 <img src=".<?= $row["product_image"] ?>" alt="<?= $row["product_name"] ?>">
@@ -346,15 +352,21 @@ https://templatemo.com/tm-571-hexashop
                                         <div class="item">
                                             <div class="thumb">
                                                 <div class="hover-content">
-                                                    <ul>
-                                                        <li><a href="single-product.php?id=<?= $row["product_id"] ?>"><i
-                                                                    class="fa fa-eye"></i></a></li>
-                                                        <li><a href="single-product.php?id=<?= $row["product_id"] ?>"><i
-                                                                    class="fa fa-star"></i></a></li>
-                                                        <li><a href="add-to-cart.php?id=<?= $row["product_id"] ?>"><i
-                                                                    class="fa fa-shopping-cart"></i></a></li>
+                                                    <ul class="list-inline d-flex justify-content-center align-items-center">
+                                                        <li class="list-inline-item"><a
+                                                                href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                    class="emoji">👁️</i></span></a></li>
+                                                        <li class="list-inline-item"><a
+                                                                href="single-product.php?id=<?= $row["product_id"] ?>"><span
+                                                                    class="emoji">⭐</span></a></li>
+                                                        <li class="list-inline-item"><a
+                                                                href="add-to-cart.php?id=<?= $row["product_id"] ?>"><span
+                                                                    class="emoji">🛒</span></a></li>
                                                     </ul>
                                                 </div>
+
+
+
                                                 <img src=".<?= $row["product_image"] ?>" alt="<?= $row["product_name"] ?>">
                                             </div>
                                             <div class="down-content">
@@ -380,6 +392,9 @@ https://templatemo.com/tm-571-hexashop
                                 }
                             }
                             ?>
+                            <!-- GET IP ADRESS FUNCTIONALITY -->
+
+                           
 
                         </div>
                     </div>
