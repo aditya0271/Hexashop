@@ -103,3 +103,30 @@ if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
     echo "Please enter a search query.";
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- ***** Main Banner Area Start ***** -->
+                <div class="page-heading" id="top">
+                </div>
+            </div>
+        </div>
+    </div>

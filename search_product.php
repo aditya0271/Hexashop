@@ -1,7 +1,6 @@
 <?php
 include ('includes/config.php');
-include ('includes/header.php');
-
+include ('includes/header1.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,13 +18,29 @@ include ('includes/header.php');
     <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Your HTML structure for the product items -->
-    <div class="container ">
+
+
+    <div class="container">
         <div class="row">
+            <div class="col-lg-12">
+
+                <!-- ***** Main Banner Area Start ***** -->
+                <div class="page-heading" id="top">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="row">
+            <!-- Product Items -->
             <?php
-            // Check if search query is set
             if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                 $search_query = mysqli_real_escape_string($conn, $_GET['search_query']);
                 $sql = "SELECT * FROM product WHERE product_name LIKE '%$search_query%'";
@@ -33,29 +48,25 @@ include ('includes/header.php');
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
             ?>
-                        <div class="col-lg-5 col-md-8 col-sm-8 " >
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="add-to-cart.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src=".<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
-                                <br>
-                                </div>
-                                <div class="down-content">
-                                    <h4><?php echo $row['product_name']; ?></h4>
-                                    <span><?php echo $row['product_price']; ?></span>
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item"><a href="single-product.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-eye"></i></a></li>
-                                        <li class="list-inline-item"><a href="single-product.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-star"></i></a></li>
-                                        <li class="list-inline-item"><a href="add-to-cart.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="item">
+                    <div class="thumb">
+                        <div class="hover-content">
+                            <img src=".<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
                         </div>
+                        <div class="down-content">
+                            <h4><?php echo $row['product_name']; ?></h4>
+                            <span>RS.<?php echo $row['product_price']; ?></span>
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="single-product.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-eye"></i></a></li>
+                                <li class="list-inline-item"><a href="single-product.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-star"></i></a></li>
+                                <li class="list-inline-item"><a href="add-to-cart.php?id=<?php echo $row['product_id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                        <br><br><br><br>
+            </div>
             <?php
                     }
                 } else {
@@ -67,5 +78,8 @@ include ('includes/header.php');
             ?>
         </div>
     </div>
+
+    <!-- Footer Section -->
+    <?php include ('includes/footer.php'); ?>
 </body>
 </html>

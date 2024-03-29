@@ -17,11 +17,17 @@
                                 type="submit">
                                 <i class="bi bi-search"></i>
                             </button>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="bi bi-cart3"></i></i><SUP>1</SUP></a>
-                            </li>
                         </form>
-
+                    </div>
+                    <div>
+                    <ul class="nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="cart.php"><i class="bi bi-cart3"></i> Cart <SUP></SUP></a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="login.php">Login</a>
+                            </li>
+                        </ul>
                     </div>
                     <!-- ***** Logo End ***** -->
                     <ul class="nav ">
@@ -81,6 +87,7 @@
                         </li>
                         <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                     </ul>
+
                 </nav>
 
 

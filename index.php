@@ -1,7 +1,7 @@
 <!-- config file -->
 <?php
 include ('includes/config.php');
-include ('includes/header.php');
+include ('includes/header1.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +31,28 @@ include ('includes/header.php');
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
-    <!--
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+        rel="stylesheet">
 
-TemplateMo 571 Hexashop
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-https://templatemo.com/tm-571-hexashop
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
--->
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!--TemplateMo 571 Hexashop https://templatemo.com/tm-571-hexashop-->
 </head>
 
 <body>
@@ -51,6 +66,58 @@ https://templatemo.com/tm-571-hexashop
         </div>
     </div>
     <!-- ***** Preloader End ***** -->
+
+<!-- Hero Start -->
+<div class="container-fluid py-5 mb-5 hero-header" style="background-image: url('assets/images/bg.webp');filter: blur(0px);">">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-md-12 col-lg-7">
+                <h4 class="mb-3 text-light">Dress to impress, shop with finesse!</h4>
+                <h1 class="mb-2 display-10 text-light">Step into style, step into our collection</h1>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-2 border-secondary w-75 py-4 px-2 rounded-pill" type="number"
+                        placeholder="Search">
+                    <button type="submit"
+                        class="btn btn-dark border-2 border-dark py-3 px-4 position-absolute rounded-pill text-white h-100"
+                        style="top: 0; right: 20%;">Submit Now</button>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-5">
+                <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active rounded">
+                            <img src="assets/images/slider1.webp"
+                                class="img-fluid w-100 h-100" alt="First slide">
+                            <!-- <a href="#" class="btn px-4 py-2 text-white rounded"></a> -->
+                        </div>
+                        <div class="carousel-item rounded">
+                            <img src="assets/images/slider2.webp" class="img-fluid w-100 h-100 rounded"
+                                alt="Second slide">
+                            <!-- <a href="#" class="btn px-4 py-2 text-white rounded"></a> -->
+                        </div>
+                        <div class="carousel-item rounded">
+                            <img src="assets/images/slider3.webp" class="img-fluid w-100 h-100 rounded"
+                                alt="Third slide">
+                            <!-- <a href="#" class="btn px-4 py-2 text-white rounded"></a> -->
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselId"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden"></span>
+                    </button>
+                    <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselId"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Hero End -->
 
 
 
@@ -72,6 +139,7 @@ https://templatemo.com/tm-571-hexashop
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-6">
                     <div class="right-content">
                         <div class="row">
@@ -174,7 +242,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-6">
                     <div class="section-heading">
                         <h2>Men's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <span>We Offer Shirts, Trousers And Other Products For Men.</span>
                     </div>
                 </div>
             </div>
@@ -215,14 +283,9 @@ https://templatemo.com/tm-571-hexashop
                                                 <?= $row["product_name"] ?>
                                             </h4>
                                             <span>RS.
-                                                <?= $row["product_price"] ?>
+                                                <b><?= $row["product_price"] ?></b>
                                             </span>
-                                            <ul class="stars">
-                                                <?php
-                                                for ($i = 0; $i < 5; $i++) { ?>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                <?php } ?>
-                                            </ul>
+
                                         </div>
                                     </div>
                                     <?php
@@ -248,7 +311,8 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-6">
                     <div class="section-heading">
                         <h2>Women's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <span>Select a Category To View Our Collection Of Products For Women.
+</span>
                     </div>
                 </div>
             </div>
@@ -326,7 +390,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-6">
                     <div class="section-heading">
                         <h2>Kid's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <span>Select a Category To Explore Our Range Of Apparel For Kids.</span>
                     </div>
                 </div>
             </div>
@@ -361,7 +425,9 @@ https://templatemo.com/tm-571-hexashop
                                                                     class="emoji">⭐</span></a></li>
                                                         <li class="list-inline-item"><a
                                                                 href="add-to-cart.php?id=<?= $row["product_id"] ?>"><span
-                                                                    class="emoji">🛒</span></a></li>
+                                                                    class="emoji">🛒</span></a>
+                                                                
+                                                        </li>
                                                     </ul>
                                                 </div>
 
@@ -394,7 +460,7 @@ https://templatemo.com/tm-571-hexashop
                             ?>
                             <!-- GET IP ADRESS FUNCTIONALITY -->
 
-                           
+
 
                         </div>
                     </div>
@@ -644,7 +710,22 @@ https://templatemo.com/tm-571-hexashop
         });
 
     </script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i
+            class="fa fa-arrow-up"></i></a>
 
+
+</body>
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/assets/js/main.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 include ('includes/config.php');
-include ('includes/header.php');
+include ('includes/header1.php');
 ?>
 
 <!DOCTYPE html>
@@ -39,18 +39,10 @@ https://templatemo.com/tm-571-hexashop
 -->
 </head>
 
-<body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
+<body> 
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="page-heading" id="top">
@@ -65,13 +57,16 @@ https://templatemo.com/tm-571-hexashop
             </div>
         </div> -->
     </div>
+    </div>
+        </div>
+    </div>
     <!-- ***** Main Banner Area End ***** -->
 
 
     <!-- ***** Product Area Starts ***** -->
     <?php
     // Check if product ID is provided in the URL
-    if (isset ($_GET['id']) && !empty ($_GET['id'])) {
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
         $product_id = mysqli_real_escape_string($conn, $_GET['id']);
 
         // Fetch product details from the database based on the product ID
@@ -133,6 +128,7 @@ https://templatemo.com/tm-571-hexashop
                     </div>
                 </div>
             </div>
+            
             <?php
         } else {
             echo "Product not found.";
@@ -144,11 +140,11 @@ https://templatemo.com/tm-571-hexashop
     function getIPAddress()
     {
         // whether IP is from the shared internet
-        if (!empty ($_SERVER['HTTP_CLIENT_IP'])) {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         }
         // whether IP is from the proxy
-        else if (!empty ($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
         }
         // whether IP is from the remote address
@@ -161,7 +157,7 @@ https://templatemo.com/tm-571-hexashop
     function cart()
     {
         global $conn; // Assuming $conn is your database connection
-        if (isset ($_GET['add_to_cart'])) {
+        if (isset($_GET['add_to_cart'])) {
             $get_ip_add = getIPAddress();
             $get_product_id = $_GET['add_to_cart'];
 
@@ -191,47 +187,50 @@ https://templatemo.com/tm-571-hexashop
 
     // Call the cart function after form submission
     cart();
- 
-    // function to get cart item number  
+
+
+    // function cart_item()
+    // {
+    //     // echo"<pre>";print_r("hiii");die();
+    //     global $conn; 
+    //     if (isset($_GET['add_to_cart'])) {
+    //         $get_ip_add = getIPAddress();
+    //         $select_query = "SELECT * FROM `cart_details` WHERE ip_adress='$get_ip_add'";
+    //         $result_query = mysqli_query($conn, $select_query);
+    //         $count_cart_items = mysqli_num_rows($result_query);
+    //     } else {
+    //         global $conn;
+    //         $get_ip_add = getIPAddress();
+    //         $select_query = "SELECT * FROM `cart_details` WHERE ip_adress='$get_ip_add'";
+    //         $result_query = mysqli_query($conn, $select_query);
+    //         $count_cart_items = mysqli_num_rows($result_query);
+    //     }
+    //     echo "$count_cart_items";
+    // }
     
-    function cart_item(){
-        global $conn; // Assuming $conn is your database connection
-        if (isset ($_GET['add_to_cart'])) {
-            $get_ip_add = getIPAddress();
-            $get_product_id = $_GET['add_to_cart'];
+    function cart_item()
+{
+    global $conn; // Assuming $conn is your database connection
 
-            // Sanitize input to prevent SQL injection
-            $get_ip_add = mysqli_real_escape_string($conn, $get_ip_add);
-            $get_product_id = mysqli_real_escape_string($conn, $get_product_id);
+    // Get the user's IP address
+    $get_ip_add = getIPAddress();
 
-            $select_query = "SELECT * FROM `cart_details` WHERE ip_adress='$get_ip_add' AND product_id=$get_product_id";
-            $result_query = mysqli_query($conn, $select_query);
-            $num_of_rows = mysqli_num_rows($result_query);
-
-            if ($num_of_rows > 0) {
-                echo "<script>alert('This item is already in your cart')</script>";
-                echo "<script>window.open('index.php', '_self')</script>";
-            } else {
-                // Insert the item into the cart_details table
-                $insert_query = "INSERT INTO `cart_details` (ip_adress, quantity) VALUES ('$get_ip_add', 1)";
-
-                $result_insert = mysqli_query($conn, $insert_query);
-                if ($result_insert) {
-                    echo "<script>alert('Item added to cart successfully')</script>";
-                    echo "<script>window.open('index.php', '_self')</script>";
-                }
-            }
-        }
-
+    // Check if the 'add_to_cart' parameter is set in the URL
+    if (isset($_GET['add_to_cart'])) {
+        // If 'add_to_cart' is set, increment the cart items count
+        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+        $result_query = mysqli_query($conn, $select_query);
+        $count_cart_items = mysqli_num_rows($result_query);
+    } else {
+        // If 'add_to_cart' is not set, just fetch the current cart items count
+        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+        $result_query = mysqli_query($conn, $select_query);
+        $count_cart_items = mysqli_num_rows($result_query);
     }
 
-
-
-
-
-
-
-
+    // Display the count of cart items
+    echo "$count_cart_items";
+}
 
     ?>
 
